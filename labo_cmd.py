@@ -1,3 +1,6 @@
+from gestion_labo import *
+
+
 class LaboException(Exception):
     """ Généralise les exceptions du laboratoire."""
     pass
