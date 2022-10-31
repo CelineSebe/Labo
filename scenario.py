@@ -2,7 +2,7 @@ from labo_cmd import *
 
 
 def main():
-    irit = labo()
+    irit = Labo()
     print(irit)
     ajouter(irit, "Xavier", "FBJO")
     print(irit)
@@ -14,3 +14,16 @@ def main():
 
 
 main()
+
+
+def depart():
+    irit = Labo()
+    print(irit)
+    supprimer(irit, "Xavier", "FBJO")
+    try:
+        supprimer(irit, "Xavier", "FBJO")
+    except AbsentException:
+        print("Non trouvé")
+
+
+depart()

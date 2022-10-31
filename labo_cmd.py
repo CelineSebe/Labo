@@ -18,4 +18,4 @@ def Labo():
 def ajouter(Labo, nom, bureau):
     if nom in Labo:
         raise PresentException
-        Labo[nom] = bureau
+    Labo[nom] = bureau
