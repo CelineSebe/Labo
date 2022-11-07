@@ -6,24 +6,19 @@ def main():
     print(irit)
     ajouter(irit, "Xavier", "FBJO")
     print(irit)
+    assert appartenir_labo(irit, "Xavier")
+    assert not appartenir_labo(irit, "Sisi")
+    assert obtenir_bureau(irit, "Xavier") == "FBJO"
+
     try:
-        ajouter(irit, 'Xavier', 'FBJO')
+        ajouter(irit, "Xavier", "FBJO")
         assert False
+
     except PresentException:
         print("Déjà enregistré")
 
+    modifier_nom(irit, "Xavier", "xav")
+    print(irit)
+
 
 main()
-
-
-def depart():
-    irit = Labo()
-    print(irit)
-    supprimer(irit, "Xavier", "FBJO")
-    try:
-        supprimer(irit, "Xavier", "FBJO")
-    except AbsentException:
-        print("Non trouvé")
-
-
-depart()
