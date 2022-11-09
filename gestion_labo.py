@@ -76,7 +76,7 @@ def main():
 
         elif choice == 8:
             # afficher_bureau({'B105': ['Jean', 'Claude'], 'B106': ['Pierre']})
-            bureaux = occupation_bureau(labo)
+            bureaux = occuper_bureau(labo)
             print("bureaux =", bureaux)
             afficher_bureau(bureaux)
             ecrire_bureau(bureaux)
@@ -90,9 +90,13 @@ def ecrire_bureau(bureaux):
     occupants = './occupants.html'
 
     with open(occupants, 'w') as fichier:
-        for bureau, noms in sorted(bureaux.items()):
-            fichier.write('<p>' + bureau + '\n')
-            fichier.write(str(noms) + '\n')
+        for bureau, nom in sorted(bureaux.items()):
+            fichier.write('<p>' + bureau + ':' + '<p>')
+            print("\n")
+            fichier.write('<ul>')
+            fichier.write('<li>' + str(nom[0]) + '</li>')
+            fichier.write('<li>' + str(nom[1]) + '</li>')
+            fichier.write('</ul>')
 
 
 def afficher_bureau(bureaux):

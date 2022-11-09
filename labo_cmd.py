@@ -63,7 +63,7 @@ def obtenir_listin(labo):
         print("Nom: {0}, Value: {1}" .format(nom, bureau))
 
 
-def occupation_bureau(labo):
+def occuper_bureau(labo):
     bureaux = {}
 
     for nom, bureau in labo.items():
