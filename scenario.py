@@ -10,6 +10,8 @@ def main():
     assert not appartenir_labo(irit, "Sisi")
     assert obtenir_bureau(irit, "Xavier") == "FBJO"
 
+    obtenir_listin()
+
     try:
         ajouter(irit, "Xavier", "FBJO")
         assert False

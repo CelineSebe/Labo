@@ -14,6 +14,7 @@ class PresentException(LaboException):
 
 
 def Labo():
+
     return {}
 
 
@@ -60,3 +61,14 @@ def obtenir_bureau(labo, nom):
 def obtenir_listin(labo):
     for nom, bureau in labo.items():
         print("Nom: {0}, Value: {1}" .format(nom, bureau))
+
+
+def occupation_bureau(labo):
+    bureaux = {}
+
+    for nom, bureau in labo.items():
+        if bureau in bureaux:
+            bureaux[bureau].append(nom)
+        else:
+            bureaux[bureau] = [nom]
+    return bureaux

@@ -4,6 +4,9 @@ from labo_cmd import *
 def main():
     quitter = False
     labo = Labo()
+    ajouter(labo, "celine", "70")
+    ajouter(labo, "Dinah", "60")
+    ajouter(labo, "Dih", "60")
 
     while not quitter:
         print(labo)
@@ -16,6 +19,7 @@ def main():
         print("5- Savoir si une personne est membre du laboratoire")
         print("6- Obtenir le bureau d'une personne")
         print("7- Donner le listing de tous les personnels avec le bureau occupé")
+        print("8- Afficher l'occupation des bureaux en mode texte")
 
         # sélectionner un choix
         choice = int(input("Votre choix : "))
@@ -69,8 +73,32 @@ def main():
             # donner le listing de tous les personnels
             print("Vous souhaitez obtenir le listing complet.")
             obtenir_listin(labo)
+
+        elif choice == 8:
+            # afficher_bureau({'B105': ['Jean', 'Claude'], 'B106': ['Pierre']})
+            bureaux = occupation_bureau(labo)
+            print("bureaux =", bureaux)
+            afficher_bureau(bureaux)
+            ecrire_bureau(bureaux)
+
         else:
             quitter = True
+
+
+def ecrire_bureau(bureaux):
+
+    occupants = './occupants.html'
+
+    with open(occupants, 'w') as fichier:
+        for bureau, noms in sorted(bureaux.items()):
+            fichier.write('<p>' + bureau + '\n')
+            fichier.write(str(noms) + '\n')
+
+
+def afficher_bureau(bureaux):
+    for key in bureaux:
+        print(key, bureaux[key])
+        print()
 
 
 main()
